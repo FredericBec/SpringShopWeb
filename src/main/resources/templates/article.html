@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+	<head>
+	<meta charset="utf-8">
+	<title>Ajout d'un article</title>
+	</head>
+	<body>
+		<div class="container">
+			<div layout:fragment="content" class="row justify-content-center align-items-center">
+				<div class="col-md-4 col-xs-8">
+					<div class="card">
+						<div class="card-header text-bg-primary">Ajouter un article</div>
+						<div class="card-body">
+							<form th:action="@{/save}" method="post">
+								<div class="mb-3">
+									<label for="description" class="form-label">Description :</label>
+									<input type="text" class="form-control" name="description" th:value="${article.description}">
+									<span th:errors="${article.description}" class="text-danger"></span>
+								</div>
+								<div class="mb-3">
+									<label for="price" class="form-label">Prix :</label>
+									<input type="text" class="form-control" name="price" th:value="${article.price}">
+									<span th:errors="${article.price}" class="text-danger"></span>
+								</div>
+								<button type="submit" class="btn btn-primary">Save</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
